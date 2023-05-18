@@ -6,7 +6,7 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ## User Story
 
-• As a customer of the Mythical Animal E-Commerce Site, I want to be able to browse, select, and purchase mythical animal products seamlessly. This will allow me to easily acquire my desired mythical creatures and enjoy a smooth shopping experience.
+• As a customer of the Mythical Animal E-Commerce Site, I want to be able to browse, select, and purchase mythical animals seamlessly. This will allow me to easily acquire my desired mythical creatures and enjoy a smooth shopping experience.
 
 ## Acceptance Criteria
 
@@ -34,10 +34,6 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ![JPG]()
 
-![JPG]()
-
-![JPG]()
-
 ## Demo
 
 [Fantastic Beasts and How to Buy Them]()
@@ -60,7 +56,7 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ## Technology Used
 
-• REACT.js
+• React.js
 
 • MongoDB
 
@@ -70,11 +66,11 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • Express.js
 
-• Graphql
+• GraphQL
 
 • MongoDB Atlas
 
-• IndexDB
+• IndexedDB
 
 • PWA
 
