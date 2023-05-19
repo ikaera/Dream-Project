@@ -1,59 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+//  import EmailJS
+import emailjs from 'emailjs-com';
 
-//  import EmailJS
-//  import EmailJS
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-// import AnimatedLetters from '../AnimatedLetters';
-// import './Contact.css';
 // Here we import a helper function that will check if the email is valid
-import { checkPassword, validateEmail } from '../../utils/helpers';
+import { validateEmail } from '../../utils/helpers';
 
 export default function Contact() {
   // const [letter, setLetter] = useState();
 
-  // Implimenting EmailJS in React
+  // Implementing EmailJS in React
   const form = useRef();
-  const sendEmail = e => {
-    // e.preventDefault();
-
-    emailjs
-      .sendForm(
-        'service_pyc4693',
-        'template_6xidmwh',
-        form.current,
-        // {
-        //   from_name: name,
-        //   from_email: email,
-        //   message: message,
-        //   subject: subject,
-        // },
-        'MV5a-rndSv5x-CHHQ',
-      )
-      .then(
-        result => {
-          console.log('SUCCESS!', result.status, result.text);
-          setSuccessMessage('Email was sent!');
-          // window.location.reload(false);
-          // alert(`Hello ${name}`);
-
-          // If everything goes according to plan, we want to clear out the input after a successful registration.
-          setName('');
-          setSubject('');
-          setEmail('');
-          setMessage('');
-        },
-        error => {
-          console.log(
-            'FAILED to send the message, please try again',
-            error.text,
-          );
-          setErrorMessage('FAILED to send the message.');
-        },
-      );
-  };
-  // Create state variables for the fields in the form
-  // We are also setting their initial values to an empty string
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [subject, setSubject] = useState('');
@@ -61,7 +17,31 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const handleInputChange = e => {
+  useEffect(() => {
+    emailjs.init('YOUR_USER_ID');
+  }, []);
+
+  const sendEmail = () => {
+    emailjs
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current)
+      .then(
+        (result) => {
+          console.log('SUCCESS!', result.status, result.text);
+          setSuccessMessage('Email was sent!');
+          // If everything goes according to plan, we want to clear out the input after a successful registration.
+          setName('');
+          setSubject('');
+          setEmail('');
+          setMessage('');
+        },
+        (error) => {
+          console.log('FAILED to send the message, please try again', error.text);
+          setErrorMessage('FAILED to send the message.');
+        }
+      );
+  };
+
+  const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
     const inputType = target.name;
@@ -74,10 +54,12 @@ export default function Contact() {
       setName(inputValue);
     } else if (inputType === 'subject') {
       setSubject(inputValue);
-    } else setMessage(inputValue);
+    } else {
+      setMessage(inputValue);
+    }
   };
 
-  const handleFormSubmit = e => {
+  const handleFormSubmit = (e) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     e.preventDefault();
 
@@ -86,12 +68,8 @@ export default function Contact() {
       setErrorMessage('Email or name is invalid');
       // We want to exit out of this code block if something is wrong so that the user can correct it
       return;
-      // Then we check to see if the password is not valid. If so, we set an error message regarding the password.
     }
-    // if (!checkPassword(password)) {
-    //   setErrorMessage(`Choose a more secure password for the account: ${name}`);
-    //   return;
-    // }
+
     sendEmail();
   };
 
@@ -102,7 +80,7 @@ export default function Contact() {
       </div> */}
       <div className="container contact-page">
         <div className="text-zone">
-          <h1>Contact Page</h1>
+          <h1>Contact Us!</h1>
           <p></p>
           {successMessage && (
             <div>
@@ -110,12 +88,7 @@ export default function Contact() {
             </div>
           )}
           <div className="contact-form">
-            <form
-              id="my-form"
-              className="form"
-              ref={form}
-              onSubmit={handleFormSubmit}
-            >
+            <form id="my-form" className="form" ref={form} onSubmit={handleFormSubmit}>
               <input
                 className="contact-half"
                 value={name}
@@ -134,7 +107,6 @@ export default function Contact() {
                 placeholder="Email"
                 required
               />
-
               <input
                 className="contact-li"
                 placeholder="Subject"
@@ -163,12 +135,8 @@ export default function Contact() {
               {/* <button type="button" onClick={handleFormSubmit}>
                 Submit
               </button> */}
-              <input
-                type="submit"
-                className="contact-flat-button"
-                value="SEND"
-                // onClick={handleFormSubmit}
-              />
+
+              <input type="submit" className="contact-flat-button" value="SEND" />
             </form>
             {errorMessage && (
               <div>
