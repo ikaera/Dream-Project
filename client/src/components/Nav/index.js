@@ -46,10 +46,13 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🐉
+          <span role="img" aria-label="creatures">
+          👹
           </span>
           Fantastic Beasts and How to Buy Them
+          <span role="img" aria-label="creatures">
+          👹
+          </span>
         </Link>
       </h1>
 

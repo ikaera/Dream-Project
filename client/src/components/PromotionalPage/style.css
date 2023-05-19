@@ -1,0 +1,63 @@
+.promotional-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .promotional-page p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .flaming-border {
+    animation: flameAnimation 2s infinite;
+    display: block;
+    border: none;
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .flaming-border h2,
+  .flaming-border h3 {
+    font-weight: bold;
+    animation: titleAnimation 2s infinite;
+    margin: 20px 0;
+  }
+
+  .flaming-border::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff5722;
+    text-shadow: 0 0 5px #ff5722, 0 0 15px #ff9800, 0 0 25px #ffc107, 0 0 35px #ffeb3b, 0 0 45px #ffeb3b, 0 0 55px #ffeb3b, 0 0 60px #ff5722, 0 0 70px #ff5722, 0 0 80px #ff5722;
+  }
+
+  @keyframes flameAnimation {
+    0% {
+      box-shadow: 0 0 5px #ff5722, 0 0 15px #ff9800, 0 0 25px #ffc107, 0 0 35px #ffeb3b, 0 0 45px #ffeb3b, 0 0 55px #ffeb3b;
+    }
+    50% {
+      box-shadow: 0 0 5px #ff5722, 0 0 15px #ff9800, 0 0 25px #ffc107, 0 0 35px #ffeb3b, 0 0 45px #ffeb3b, 0 0 55px #ffeb3b, 0 0 60px #ff5722, 0 0 70px #ff5722, 0 0 80px #ff5722;
+    }
+    100% {
+      box-shadow: 0 0 5px #ff5722, 0 0 15px #ff9800, 0 0 25px #ffc107, 0 0 35px #ffeb3b, 0 0 45px #ffeb3b, 0 0 55px #ffeb3b;
+    }
+  }
+
+  @keyframes titleAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
