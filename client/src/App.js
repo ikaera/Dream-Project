@@ -16,9 +16,13 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
+import Contact from './components/Contact/Contact';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+//
+// import { useState, useEffect } from 'react';
+// import SearchBox from './components/search-field/search-field';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -48,6 +52,7 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/success" element={<Success />} />
