@@ -7,7 +7,7 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function ProductList({ searchField }) {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -43,22 +43,28 @@ function ProductList() {
     );
   }
 
+  const filterBySearch = product => {
+    return product.name.toLowerCase().includes(searchField.toLowerCase());
+  };
+
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
       {state.products.length ? (
         <div className="flex-row">
-          {filterProducts().map(product => (
-            <ProductItem
-              item={product}
-              key={product._id}
-              // _id={product._id}
-              // image={product.image}
-              // name={product.name}
-              // price={product.price}
-              // quantity={product.quantity}
-            />
-          ))}
+          {filterProducts()
+            .filter(filterBySearch)
+            .map(product => (
+              <ProductItem
+                item={product}
+                key={product._id}
+                // _id={product._id}
+                // image={product.image}
+                // name={product.name}
+                // price={product.price}
+                // quantity={product.quantity}
+              />
+            ))}
         </div>
       ) : (
         <h3>You haven't added any mythical creatures yet!</h3>
