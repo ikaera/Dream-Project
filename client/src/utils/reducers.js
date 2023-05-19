@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+// Import our actions from our actions file
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
