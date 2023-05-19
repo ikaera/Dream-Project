@@ -4,6 +4,7 @@ import CategoryMenu from '../components/CategoryMenu';
 import PromotionalPage from '../components/PromotionalPage';
 import Cart from '../components/Cart';
 import SearchBox from '../components/search-field/search-field';
+import Contact from '../components/Contact/Contact';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -29,20 +30,22 @@ const Home = () => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
-  console.log(searchField);
+
   return (
     <div className="container">
       <CategoryMenu />
-      {/* <form autocomplete="on"> */}
+
       <SearchBox
         className="store-search-box"
         onChangeHandler={onSearchChange}
-        placeholder="search inventory"
+        placeholder="BeastFinder 🔍"
       />
-      {/* </form> */}
+
       <ProductList searchField={searchField} creatures={filteredCreatures} />
+
       <PromotionalPage />
       <Cart />
+      <Contact />
     </div>
   );
 };

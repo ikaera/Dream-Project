@@ -76,6 +76,8 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • JWT
 
+• EmailJS
+
 • Stripe
 
 • Heroku
