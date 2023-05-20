@@ -3,11 +3,13 @@ import emailjs from 'emailjs-com';
 import { validateEmail } from '../../utils/helpers';
 
 export default function Contact() {
-    const form = useRef();
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
+    const form = useRef(null);
+    const [formData, setFormData] = useState({
+        email: '',
+        name: '',
+        subject: '',
+        message: '',
+    });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
@@ -16,42 +18,36 @@ export default function Contact() {
     }, []);
 
     const sendEmail = () => {
-        emailjs
-            .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current)
-            .then(
-                (result) => {
-                    console.log('SUCCESS!', result.status, result.text);
-                    setSuccessMessage('Email was sent!');
-                    setName('');
-                    setSubject('');
-                    setEmail('');
-                    setMessage('');
-                },
-                (error) => {
-                    console.log('FAILED to send the message, please try again', error.text);
-                    setErrorMessage('FAILED to send the message.');
-                }
-            );
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current).then(
+            (result) => {
+                console.log('SUCCESS!', result.status, result.text);
+                setSuccessMessage('Email was sent!');
+                setFormData({
+                    email: '',
+                    name: '',
+                    subject: '',
+                    message: '',
+                });
+            },
+            (error) => {
+                console.log('FAILED to send the message, please try again', error.text);
+                setErrorMessage('FAILED to send the message.');
+            }
+        );
     };
 
     const handleInputChange = (e) => {
-        const { target } = e;
-        const inputType = target.name;
-        const inputValue = target.value;
-
-        if (inputType === 'email') {
-            setEmail(inputValue);
-        } else if (inputType === 'name') {
-            setName(inputValue);
-        } else if (inputType === 'subject') {
-            setSubject(inputValue);
-        } else {
-            setMessage(inputValue);
-        }
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+
+        const { email, name } = formData;
 
         if (!validateEmail(email) || !name) {
             setErrorMessage('Email or name is invalid');
@@ -76,7 +72,7 @@ export default function Contact() {
                         <form id="my-form" className="form" ref={form} onSubmit={handleFormSubmit}>
                             <input
                                 className="contact-half"
-                                value={name}
+                                value={formData.name}
                                 name="name"
                                 onChange={handleInputChange}
                                 type="text"
@@ -85,7 +81,7 @@ export default function Contact() {
                             />
                             <input
                                 className="contact-half"
-                                value={email}
+                                value={formData.email}
                                 name="email"
                                 onChange={handleInputChange}
                                 type="email"
@@ -95,7 +91,7 @@ export default function Contact() {
                             <input
                                 className="contact-li"
                                 placeholder="Subject"
-                                value={subject}
+                                value={formData.subject}
                                 onChange={handleInputChange}
                                 type="text"
                                 name="subject"
@@ -103,7 +99,7 @@ export default function Contact() {
                             />
                             <textarea
                                 className="contact-textarea"
-                                value={message}
+                                value={formData.message}
                                 placeholder="Message"
                                 onChange={handleInputChange}
                                 name="message"
