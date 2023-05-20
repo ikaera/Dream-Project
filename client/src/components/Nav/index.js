@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import Logo from '../../images/logo2.png';
 
 function Nav() {
   // Function to determine the navigation based on user authentication status
@@ -44,15 +45,17 @@ function Nav() {
   // Render the navigation component
   return (
     <header className="flex-row px-1">
+  
       <h1>
         <Link to="/">
-          <span role="img" aria-label="creatures">
+        <img src={Logo} alt="logo"/>
+          {/* <span role="img" aria-label="creatures">
           👹
           </span>
           Fantastic Beasts and How to Buy Them
           <span role="img" aria-label="creatures">
           👹
-          </span>
+          </span> */}
         </Link>
       </h1>
 
