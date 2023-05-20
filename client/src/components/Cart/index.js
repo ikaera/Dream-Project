@@ -95,10 +95,13 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added any mythical creatures to your cart yet!
+          <span role="img" aria-label="caution">
+          ⚠️
+        </span>
+          There are no mythical creatures in your cart yet!
+          <span role="img" aria-label="caution">
+          ⚠️
+        </span>
         </h3>
       )}
     </div>
