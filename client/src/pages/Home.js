@@ -20,14 +20,14 @@ const Home = () => {
 
   useEffect(() => {
     const newFilteredCreatures = creatures.filter(creature => {
-      return creature.name.toLocaleLowerCase().includes(searchField);
+      return creature.name.toLowerCase().includes(searchField);
     });
 
     setFilterCreatures(newFilteredCreatures);
   }, [creatures, searchField]);
 
   const onSearchChange = event => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
+    const searchFieldString = event.target.value.toLowerCase();
     setSearchField(searchFieldString);
   };
 
