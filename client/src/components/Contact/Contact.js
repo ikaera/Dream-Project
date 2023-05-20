@@ -1,14 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-//  import EmailJS
 import emailjs from 'emailjs-com';
-
-// Here we import a helper function that will check if the email is valid
 import { validateEmail } from '../../utils/helpers';
 
 export default function Contact() {
-  // const [letter, setLetter] = useState();
-
-  // Implementing EmailJS in React
   const form = useRef();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -28,7 +22,6 @@ export default function Contact() {
         (result) => {
           console.log('SUCCESS!', result.status, result.text);
           setSuccessMessage('Email was sent!');
-          // If everything goes according to plan, we want to clear out the input after a successful registration.
           setName('');
           setSubject('');
           setEmail('');
@@ -42,12 +35,10 @@ export default function Contact() {
   };
 
   const handleInputChange = (e) => {
-    // Getting the value and name of the input which triggered the change
     const { target } = e;
     const inputType = target.name;
     const inputValue = target.value;
 
-    // Based on the input type, we set the state of either email, name, and password
     if (inputType === 'email') {
       setEmail(inputValue);
     } else if (inputType === 'name') {
@@ -60,13 +51,10 @@ export default function Contact() {
   };
 
   const handleFormSubmit = (e) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     e.preventDefault();
 
-    // First we check to see if the email is not valid or if the name is empty. If so we set an error message to be displayed on the page.
     if (!validateEmail(email) || !name) {
       setErrorMessage('Email or name is invalid');
-      // We want to exit out of this code block if something is wrong so that the user can correct it
       return;
     }
 
@@ -74,78 +62,76 @@ export default function Contact() {
   };
 
   return (
-    <>
-      {/* <div>
-        <h1>Contact Page</h1>
-      </div> */}
-      <div className="container contact-page">
-        <div className="text-zone">
-          <h1>Contact Us!</h1>
-          <p></p>
-          {successMessage && (
+    <div className="container contact-page">
+      <div className="text-zone">
+        <h1>Contact Us!</h1>
+        {successMessage && (
+          <div>
+            <p className="success-text">{successMessage}</p>
+          </div>
+        )}
+        <div className="contact-form">
+          <form id="my-form" className="form" ref={form} onSubmit={handleFormSubmit}>
+            <div className="grid-container">
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  className="contact-input"
+                  value={name}
+                  name="name"
+                  onChange={handleInputChange}
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  className="contact-input"
+                  value={email}
+                  name="email"
+                  onChange={handleInputChange}
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  className="contact-input"
+                  placeholder="Enter the subject"
+                  value={subject}
+                  onChange={handleInputChange}
+                  type="text"
+                  name="subject"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  className="contact-textarea"
+                  value={message}
+                  placeholder="Enter your message"
+                  onChange={handleInputChange}
+                  name="message"
+                  required
+                ></textarea>
+              </div>
+              <div className="form-group">
+                <input type="submit" className="contact-button" value="SEND" />
+              </div>
+            </div>
+          </form>
+          {errorMessage && (
             <div>
-              <p className="success-text">{successMessage}</p>
+              <p className="error-text">{errorMessage}</p>
             </div>
           )}
-          <div className="contact-form">
-            <form id="my-form" className="form" ref={form} onSubmit={handleFormSubmit}>
-              <input
-                className="contact-half"
-                value={name}
-                name="name"
-                onChange={handleInputChange}
-                type="text"
-                placeholder="Name"
-                required
-              />
-              <input
-                className="contact-half"
-                value={email}
-                name="email"
-                onChange={handleInputChange}
-                type="email"
-                placeholder="Email"
-                required
-              />
-              <input
-                className="contact-li"
-                placeholder="Subject"
-                value={subject}
-                onChange={handleInputChange}
-                type="text"
-                name="subject"
-                required
-              />
-              <textarea
-                className="contact-textarea"
-                value={message}
-                placeholder="Message"
-                onChange={handleInputChange}
-                name="message"
-                required
-              ></textarea>
-
-              {/* <input
-                value={password}
-                name="password"
-                onChange={handleInputChange}
-                type="password"
-                placeholder="Password"
-              /> */}
-              {/* <button type="button" onClick={handleFormSubmit}>
-                Submit
-              </button> */}
-
-              <input type="submit" className="contact-flat-button" value="SEND" />
-            </form>
-            {errorMessage && (
-              <div>
-                <p className="error-text">{errorMessage}</p>
-              </div>
-            )}
-          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
