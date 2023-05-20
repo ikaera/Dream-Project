@@ -23,7 +23,7 @@ const PromotionalPage = () => {
 
       <div className="flaming-border">
         <h3 data-text="Dragons are 20% off this month">🐲Dragons are 20% off this month🐲</h3>
-        <p>Take flight with a 20% discount on all dragon-related products and make your dragon dreams come true. Hurry, don't let this fantastic deal fly away!</p>
+        <p>Take flight with a 20% discount on all dragon-related products and make your dragon dreams come true. Seize the moment and let your imagination soar!</p>
       </div>
 
       <div className="flaming-border">

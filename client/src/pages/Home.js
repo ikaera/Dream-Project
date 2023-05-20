@@ -35,17 +35,29 @@ const Home = () => {
     <div className="container">
       <CategoryMenu />
 
-      <SearchBox
-        className="store-search-box"
-        onChangeHandler={onSearchChange}
-        placeholder="BeastFinder 🔍"
-      />
+      <div className="search-container">
+        <SearchBox
+          className="store-search-box"
+          onChangeHandler={onSearchChange}
+          placeholder="BeastFinder 🔍"
+        />
+      </div>
 
-      <ProductList searchField={searchField} creatures={filteredCreatures} />
+      <div className="product-list-container">
+        <ProductList searchField={searchField} creatures={filteredCreatures} />
+      </div>
 
-      <PromotionalPage />
-      <Cart />
-      <Contact />
+      <div className="promotional-page-container">
+        <PromotionalPage />
+      </div>
+
+      <div className="cart-container">
+        <Cart />
+      </div>
+
+      <div className="contact-container">
+        <Contact />
+      </div>
     </div>
   );
 };
