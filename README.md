@@ -6,7 +6,11 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ## User Story
 
-• As a customer of the Mythical Animal E-Commerce Site, I want to be able to browse, select, and purchase mythical animals seamlessly. This will allow me to easily acquire my desired mythical creatures and enjoy a smooth shopping experience.
+• AS A customer seeking a streamlined ecommerce experience for purchasing mythical creatures,
+
+• I WANT to effortlessly browse, select, and acquire mythical creatures,
+
+• SO THAT I can easily complete the checkout process and enjoy a smooth shopping journey.
 
 ## Acceptance Criteria
 
@@ -30,17 +34,25 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ## Usage
 
+• To obtain the repository, you can either download it or clone it.
+
+• Node.js and MongoDB need to be installed and properly configured in order to run the application
+
+• To install all the dependencies, you can simply execute the command "npm install."
+
+• To run the application on your local host, you can utilize the command "npm run develop."
+
 ## Screenshots
 
 ![JPG]()
 
-## Demo
+## Short Demo Animation
 
 [Fantastic Beasts and How to Buy Them]()
 
 ## Links
 
-• Deployed Application URL: TO-BE-UPDATED
+• Deployed Application URL: https://fantastic-beasts.herokuapp.com/
 
 • Repository URL: https://github.com/ikaera/Dream-Project
 
