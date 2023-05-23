@@ -54,10 +54,10 @@ function ProductList({ searchField }) {
         <div className="flex-row">
           {filterProducts()
             .filter(filterBySearch)
-            .map(product => (
+            .map((product, index) => (
               <ProductItem
                 item={product}
-                key={product._id}
+                key={`${product._id}_${index}`}
                 // _id={product._id}
                 // image={product.image}
                 // name={product.name}

@@ -1,7 +1,9 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')(
+  'sk_test_51NAjcMJ87KDwMmLn5Md1CpgApxGw8RBbgKApEThiSTQTPGCFiNlIvCA1i10PyrneDAbI9hmdUOUyCrCyzDkBtJFY00avJyL0QA',
+);
 const emailjs = require('emailjs-com');
 
 const resolvers = {
@@ -65,6 +67,7 @@ const resolvers = {
           name: products[i].name,
           description: products[i].description,
           images: [`${url}/images/${products[i].image}`],
+          // 'payment_intent_data.receipt_email': 'ikaera@gmail.com',
         });
 
         const price = await stripe.prices.create({
