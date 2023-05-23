@@ -52,7 +52,7 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 ## Links
 
-• Deployed Application URL: TO-BE-UPDATED
+• Deployed Application URL: https://fantastic-beasts.herokuapp.com/
 
 • Repository URL: https://github.com/ikaera/Dream-Project
 
