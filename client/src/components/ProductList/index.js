@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
-import '../../App.css'
+import '../../App.css';
 
 function ProductList({ searchField }) {
   const [state, dispatch] = useStoreContext();
@@ -56,9 +56,9 @@ function ProductList({ searchField }) {
           {filterProducts()
             .filter(filterBySearch)
             .map(product => (
-              <ProductItem 
+              <ProductItem
                 item={product}
-                key={`${product._id}_${index}`}
+                key={`${product._id}`}
                 // _id={product._id}
                 // image={product.image}
                 // name={product.name}
