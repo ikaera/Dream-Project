@@ -13,6 +13,7 @@ import {
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
+import Button from '@mui/material/Button';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -90,19 +91,19 @@ function Detail() {
           <h2>{currentProduct.name}</h2>
 
           <p>{currentProduct.description}</p>
-
-          <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
+          <p>
+            
+            <Button onClick={addToCart}>Add to Cart</Button>
+            <Button color='error'
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
-            </button>
+            </Button>
           </p>
 
-          <img
+          <img className='detail-img'
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
