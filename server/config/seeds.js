@@ -1,5 +1,7 @@
+
 const { User, Product, Category } = require('../models');
 const db = require('./connection');
+
 
 db.once('open', async () => {
     await Category.deleteMany();
@@ -19,7 +21,7 @@ db.once('open', async () => {
         {
             name: 'Fire Dragon',
             description: 'A majestic dragon with fiery scales that can breathe fire and soar through the skies.',
-            image: 'fire-dragon.jpg',
+            image: 'fire-dragon.png',
             category: categories[0]._id,
             price: 199.99,
             quantity: 5,
@@ -27,7 +29,7 @@ db.once('open', async () => {
         {
             name: 'Phoenix',
             description: 'A radiant bird with shimmering plumage that represents rebirth and is said to be born from celestial flames.',
-            image: 'celestial-phoenix.jpg',
+            image: 'celestial-phoenix.png',
             category: categories[0]._id,
             price: 149.99,
             quantity: 6,
@@ -35,7 +37,7 @@ db.once('open', async () => {
         {
             name: 'Griffin',
             description: 'A legendary creature with the body, tail, and back legs of a lion; the head and wings of an eagle; and an eagle’s talons as its front feet.',
-            image: 'griffin.jpg',
+            image: 'griffin.png',
             category: categories[0]._id,
             price: 299.99,
             quantity: 2,
@@ -51,7 +53,7 @@ db.once('open', async () => {
         {
             name: 'Vampire',
             description: 'A mythical being that subsists by feeding on the life essence of living creatures, often humans.',
-            image: 'vampire.jpg',
+            image: 'vampire.png',
             category: categories[1]._id,
             price: 349.99,
             quantity: 1,
@@ -59,7 +61,7 @@ db.once('open', async () => {
         {
             name: 'Zombie',
             description: 'A dead body that has been brought back to life, typically by supernatural means, and is animated and controlled by a malevolent force.',
-            image: 'zombie.jpg',
+            image: 'zombie.png',
             category: categories[1]._id,
             price: 199.99,
             quantity: 4,
@@ -67,7 +69,7 @@ db.once('open', async () => {
         {
             name: 'Leviathan',
             description: 'A massive sea serpent that rules the depths of the ocean, feared by sailors and revered as an aquatic guardian.',
-            image: 'leviathan.jpg',
+            image: 'leviathan.png',
             category: categories[2]._id,
             price: 249.99,
             quantity: 2,
@@ -91,7 +93,7 @@ db.once('open', async () => {
         {
             name: 'Siren',
             description: 'A seductive and enchanting creature of the sea known forits captivating songs that lure sailors.',
-            image: 'siren.jpg',
+            image: 'siren.png',
             category: categories[2]._id,
             price: 279.99,
             quantity: 2,
