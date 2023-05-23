@@ -55,9 +55,9 @@ const Home = () => {
         <Cart />
       </div>
 
-      <div className="contact-container">
+      {/* <div className="contact-container">
         <Contact />
-      </div>
+      </div> */}
     </div>
   );
 };

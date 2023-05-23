@@ -1,4 +1,8 @@
 /* .App  */
+:root{
+  background-color: #F8F8FF;
+}
+
 body {
   text-align: center;
   /* background: linear-gradient(
@@ -8,10 +12,10 @@ body {
   ); */
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -41,4 +45,104 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav-logo img{
+  width: 120px;
+  /* height: 80px; */
+}
+
+.navigation{
+  /* display: flex; */
+  /* justify-content: space-between; */
+
+}
+
+.products{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product{
+  padding: 40px
+}
+
+.product img{
+  width: 200px;
+  height: 200px;
+  border: solid #282c34 5px;
+}
+
+.footer{
+  margin-top: 150px;
+  width: 100%;
+  padding: 60px 0px;
+  background-color: #333;
+  color: #efefef;
+  display: flex;
+}
+
+.footer div{
+  text-align: center;
+
+}
+
+.col-2{
+  flex-grow: 2;
+}
+
+.footer div h3{
+  font-weight: 600;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+.col-1 a{
+  display: block;
+  text-decoration: none;
+  color: #efefef;
+  margin-bottom: 10px;
+}
+
+form input{
+   width: 300px;
+   height: 45px;
+   border-radius: 4px;
+   text-align: center;
+   margin-top: 20px;
+   margin-bottom: 40px;
+   outline: none;
+   border: none;
+}
+
+form button{
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.social-icons{
+  margin-top: 30px;
+
+}
+
+.social-icons i {
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+}
+.nav-links{
+  margin-right: 60px;
+}
+.nav-links li{
+  text-decoration: none;
+  list-style: none;
+}
+.nav-links link:visited{
+  color: #333;
 }
