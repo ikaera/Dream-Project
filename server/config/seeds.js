@@ -21,7 +21,7 @@ db.once('open', async () => {
         {
             name: 'Fire Dragon',
             description: 'A majestic dragon with fiery scales that can breathe fire and soar through the skies.',
-            image: 'fire-dragon.png',
+            image: 'fire-dragon.jpg',
             category: categories[0]._id,
             price: 199.99,
             quantity: 5,
@@ -29,7 +29,7 @@ db.once('open', async () => {
         {
             name: 'Phoenix',
             description: 'A radiant bird with shimmering plumage that represents rebirth and is said to be born from celestial flames.',
-            image: 'celestial-phoenix.png',
+            image: 'celestial-phoenix.jpg',
             category: categories[0]._id,
             price: 149.99,
             quantity: 6,
@@ -37,7 +37,7 @@ db.once('open', async () => {
         {
             name: 'Griffin',
             description: 'A legendary creature with the body, tail, and back legs of a lion; the head and wings of an eagle; and an eagle’s talons as its front feet.',
-            image: 'griffin.png',
+            image: 'griffin.jpg',
             category: categories[0]._id,
             price: 299.99,
             quantity: 2,
@@ -53,7 +53,7 @@ db.once('open', async () => {
         {
             name: 'Vampire',
             description: 'A mythical being that subsists by feeding on the life essence of living creatures, often humans.',
-            image: 'vampire.png',
+            image: 'vampire.jpg',
             category: categories[1]._id,
             price: 349.99,
             quantity: 1,
@@ -61,7 +61,7 @@ db.once('open', async () => {
         {
             name: 'Zombie',
             description: 'A dead body that has been brought back to life, typically by supernatural means, and is animated and controlled by a malevolent force.',
-            image: 'zombie.png',
+            image: 'zombie.jpg',
             category: categories[1]._id,
             price: 199.99,
             quantity: 4,
@@ -69,7 +69,7 @@ db.once('open', async () => {
         {
             name: 'Leviathan',
             description: 'A massive sea serpent that rules the depths of the ocean, feared by sailors and revered as an aquatic guardian.',
-            image: 'leviathan.png',
+            image: 'leviathan.jpg',
             category: categories[2]._id,
             price: 249.99,
             quantity: 2,
@@ -93,7 +93,7 @@ db.once('open', async () => {
         {
             name: 'Siren',
             description: 'Bird creatures associated with the underworld, bridging the human world, singing a song that offers irresistible forbidden knowledge. ',
-            image: 'siren.png',
+            image: 'siren.jpg',
             category: categories[2]._id,
             price: 279.99,
             quantity: 2,
