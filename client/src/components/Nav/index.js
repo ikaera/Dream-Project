@@ -11,20 +11,18 @@ function Nav() {
     if (Auth.loggedIn()) {
       // If user is logged in, navigation links for order history and logout are shown
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <ul>
+        <Link to="/orderHistory"></Link>  
+        <Button variant='text' className='signed-in-button'>
+        <li>Order History</li>
+        </Button>
             
-            <Link to="/orderHistory">Order History</Link>
-          </li>
-          <li className="mx-1">
-            {/* Use an anchor tag to logout the user and refresh the application */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-          {/* <li className="mx-1">
-            <Link to="/contact">CONTACT</Link>
-          </li> */}
+        {/* Use an anchor tag to logout the user and refresh the application */}   
+        <Button variant='text' className='signed-in-button'>
+        <a href="/" onClick={() => Auth.logout()}>
+        <li>Log Out</li>
+        </a>
+        </Button>
         </ul>
       );
     } else {
