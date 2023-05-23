@@ -92,7 +92,7 @@ db.once('open', async () => {
         },
         {
             name: 'Siren',
-            description: 'A seductive and enchanting creature of the sea known forits captivating songs that lure sailors.',
+            description: 'Bird creatures associated with the underworld, bridging the human world, singing a song that offers irresistible forbidden knowledge. ',
             image: 'siren.png',
             category: categories[2]._id,
             price: 279.99,
