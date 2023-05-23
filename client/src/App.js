@@ -20,6 +20,7 @@ import Contact from './components/Contact/Contact';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import Footer from './components/Footer';
 //
 // import { useState, useEffect } from 'react';
 // import SearchBox from './components/search-field/search-field';
@@ -60,6 +61,7 @@ function App() {
               <Route path="/products/:id" element={<Detail />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>
