@@ -14,9 +14,9 @@ function Footer() {
             <div className="col-2">
                 <h3>NEWSLETTER</h3>
                 <form>
-                    <input type="text" placeholder="Email" required></input>
+                    <input type="text" placeholder="Email" required className="form-input-footer"></input>
                     <br></br>
-                    <button type="submit">SUBSCRIBE NOW</button>
+                    <button type="submit" className="form-button-footer">SUBSCRIBE NOW</button>
                 </form>
             </div>
             <div className="col-3">

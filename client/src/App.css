@@ -75,8 +75,22 @@ body {
   border: solid #282c34 5px;
 }
 
+/* .product p{
+  
+  text-decoration: none;
+} */
+
+.product a{
+  text-decoration: none;
+  color: #0275d8;
+}
+
+.product a:hover{
+  color: #F8F8FF;
+}
+
 .footer{
-  margin-top: 150px;
+  margin-top: 20px;
   width: 100%;
   padding: 60px 0px;
   background-color: #333;
@@ -86,7 +100,7 @@ body {
 
 .footer div{
   text-align: center;
-
+  padding: 50px;
 }
 
 .col-2{
@@ -116,7 +130,7 @@ form input{
    border: none;
 }
 
-form button{
+.form-button-footer{
   background: transparent;
   border: 2px solid #fff;
   color: #fff;
@@ -145,4 +159,39 @@ form button{
 }
 .nav-links link:visited{
   color: #333;
+}
+
+.search-container{
+  padding-top: 10px;
+}
+
+.detail-img{
+  width: 80%;
+  height: 80vh;
+  border: solid #333 8px;
+}
+
+.cat-button{
+  margin-left: 5px;
+  padding-right: 5px;
+}
+
+.sign-up{
+  border:solid #282c34 5px;
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+}
+
+li{
+  list-style: none;
+}
+
+signed-in-button a{
+  text-decoration: none;
+}
+
+signed-in-button a:visited{
+  color: #0275d8;
+  text-decoration: none;
 }
