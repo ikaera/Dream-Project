@@ -4,7 +4,6 @@ import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
-    console.log("item", item)
   const [, dispatch] = useStoreContext();
 
   // Function to remove an item from the cart
@@ -14,31 +13,38 @@ const CartItem = ({ item }) => {
       _id: item._id
     });
     idbPromise('cart', 'delete', { ...item });
-
   };
 
-  // Function to handle quantity changes
-  const onChange = (e) => {
-    const value = e.target.value;
-    if (value === '0') {
-      // If quantity becomes 0, remove the item from the cart
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
+  // Function to handle quantity increment
+  const incrementQuantity = () => {
+    const newQuantity = item.purchaseQuantity + 1;
+    if (newQuantity <= item.quantity) {
+      updateQuantity(newQuantity);
+    }
+  };
 
+  // Function to handle quantity decrement
+  const decrementQuantity = () => {
+    const newQuantity = item.purchaseQuantity - 1;
+    if (newQuantity >= 1) {
+      updateQuantity(newQuantity);
+    }
+  };
+
+  // Function to update the quantity in the cart
+  const updateQuantity = newQuantity => {
+    if (newQuantity === 0) {
+      // If quantity becomes 0, remove the item from the cart
+      removeFromCart(item);
     } else {
-      // Update the quantity in the cart
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: item._id,
-        purchaseQuantity: parseInt(value)
+        purchaseQuantity: newQuantity
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
-
+      idbPromise('cart', 'put', { ...item, purchaseQuantity: newQuantity });
     }
-  }
+  };
 
   // Render the cart item
   return (
@@ -53,14 +59,14 @@ const CartItem = ({ item }) => {
         <div>{item.name}, ${item.price}</div>
         <div>
           <span>Qty:</span>
+          <button onClick={decrementQuantity}>-</button>
           <input
             type="number"
             placeholder="1"
             value={item.purchaseQuantity}
-            onChange={onChange}
-            max={item.quantity}
-            readonly="readonly"
+            readOnly
           />
+          <button onClick={incrementQuantity}>+</button>
           <span
             role="img"
             aria-label="trash"

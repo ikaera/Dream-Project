@@ -57,7 +57,7 @@ function ProductItem({ item }) {
         <>
           {' '}
           <span className="original-price">${originalPrice} </span>
-          <span className="discount">({percentage.toFixed()}%OFF) </span>
+          <span className="discount">({percentage.toFixed()}% OFF) </span>
         </>
       );
     }

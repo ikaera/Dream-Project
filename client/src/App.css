@@ -7,7 +7,7 @@
 
 body {
   text-align: center;
-  
+
 }
 
 /* .App-logo {
@@ -79,7 +79,7 @@ body {
 }
 
 /* .product p{
-  
+
   text-decoration: none;
 } */
 
@@ -168,7 +168,7 @@ form input{
   padding-top: 10px;
   background-color: gray;
   padding-bottom: 10px;
-  
+
 }
 
 .detail-img{
@@ -216,16 +216,16 @@ signed-in-button a:visited{
 } */
 
 .torch{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   position: absolute;
   right: 12%;
   top: 20%;
 }
 
 .torch-2{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   position: absolute;
   left: 12%;
   top: 20%;
