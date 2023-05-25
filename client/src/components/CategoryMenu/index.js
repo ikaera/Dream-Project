@@ -45,7 +45,7 @@ function CategoryMenu() {
 
   // Render the category menu
   return (
-    <div>
+    <div className='category-bg'>
       <h2>Choose a Category:</h2>
       {categories.map((item) => (
         <Button className='cat-button' variant='outlined'

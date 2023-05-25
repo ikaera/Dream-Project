@@ -13,6 +13,9 @@ const StoreProvider = ({ value = [], ...props }) => {
     cartOpen: false,
     categories: [],
     currentCategory: '',
+    promotion: '',
+    discount: 1,
+    appliedDiscount: false,
   });
   // Provider components expect a value prop to be passed
   return <Provider value={[state, dispatch]} {...props} />;

@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
-import '../../App.css'
+import '../../App.css';
 
 function ProductList({ searchField }) {
   const [state, dispatch] = useStoreContext();
@@ -15,11 +15,21 @@ function ProductList({ searchField }) {
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
+  // const addCupon = prod => {
+  //   const product = { ...prod };
+  //   if (product.name === 'Vampire') {
+  //     product.price = 5.0;
+  //   }
+  //   console.log(product);
+  //   return product;
+  // };
+
   useEffect(() => {
     if (data) {
+      const updateProducts = data.products; //.map(addCupon);
       dispatch({
         type: UPDATE_PRODUCTS,
-        products: data.products,
+        products: updateProducts,
       });
       data.products.forEach(product => {
         idbPromise('products', 'put', product);
@@ -49,14 +59,14 @@ function ProductList({ searchField }) {
   };
 
   return (
-    <div className="my-2">
-      <h2>Our Products:</h2>
+    <div >
+      <h2 className="products-title-bg">Our Products:</h2>
       {state.products.length ? (
         <div className="products">
           {filterProducts()
             .filter(filterBySearch)
             .map(product => (
-              <ProductItem 
+              <ProductItem
                 item={product}
                 key={product._id}
                 // _id={product._id}
