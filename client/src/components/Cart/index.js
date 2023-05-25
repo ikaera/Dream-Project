@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
@@ -16,6 +16,8 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [promoCode, setPromoCode] = useState('');
+  const [discountApplied, setDiscountApplied] = useState(false);
 
   useEffect(() => {
     if (data) {
@@ -46,6 +48,11 @@ const Cart = () => {
     state.cart.forEach(item => {
       sum += item.price * item.purchaseQuantity;
     });
+
+    if (discountApplied) {
+      sum *= 0.6;
+    }
+
     return sum.toFixed(2);
   }
 
@@ -61,6 +68,16 @@ const Cart = () => {
     getCheckout({
       variables: { products: productIds },
     });
+  }
+
+  function handlePromoCodeChange(event) {
+    setPromoCode(event.target.value);
+  }
+
+  function applyPromoCode() {
+    if (promoCode === 'CARLSON40') {
+      setDiscountApplied(true);
+    }
   }
 
   if (!state.cartOpen) {
@@ -84,6 +101,16 @@ const Cart = () => {
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
+
+          <div className="promo-code-container">
+            <input
+              type="text"
+              placeholder="Enter promo code"
+              value={promoCode}
+              onChange={handlePromoCodeChange}
+            />
+            <button onClick={applyPromoCode}>Apply</button>
+          </div>
 
           <div className="flex-row space-between">
             <strong>Total: ${calculateTotal()}</strong>
