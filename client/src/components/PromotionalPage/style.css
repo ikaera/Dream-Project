@@ -3,11 +3,16 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    /* color: white; */
+    
+    /* background-color: gray; */
   }
 
   .promotional-page p {
     font-size: 18px;
     font-weight: bold;
+     font-weight: 800;
+     font-size: larger;
   }
 
   .flaming-border {
@@ -23,6 +28,7 @@
     font-weight: bold;
     animation: titleAnimation 2s infinite;
     margin: 20px 0;
+
   }
 
   .flaming-border::before {

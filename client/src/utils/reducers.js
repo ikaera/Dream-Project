@@ -10,6 +10,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART,
+  UPDATE_PROMOTION,
 } from './actions';
 
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
@@ -31,7 +32,8 @@ export const reducer = (state, action) => {
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.products],
+        // cart: [...state.cart, ...action.products],
+        cart: [...action.products],
       };
     // Returns a copy of state, sets the cartOpen to true and maps through the items in the cart.
     // If the item's `id` matches the `id` that was provided in the action.payload, we update the purchase quantity.
@@ -85,6 +87,24 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentCategory: action.currentCategory,
+      };
+
+    case UPDATE_PROMOTION:
+      return {
+        ...state,
+        promotion: action.promotion,
+        discount: action.discount,
+        appliedDiscount: true,
+        products: !state.appliedDiscount
+          ? state.products.map(prod => {
+              const product = { ...prod };
+              if (product.name.includes(action.promotion)) {
+                product.price = (product.price * action.discount).toFixed(2);
+              }
+              console.log(product);
+              return product;
+            })
+          : state.products,
       };
 
     // Return the state as is in the event that the `action.type` passed to our reducer was not accounted for by the developers
