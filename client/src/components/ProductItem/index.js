@@ -64,6 +64,10 @@ function ProductItem({ item }) {
     return '';
   }
 
+  function pluralize(word, quantity) {
+    return quantity === 1 ? word : word + 's';
+  }
+
   return (
     <div className="card product">
       <Link to={`/products/${_id}`}>
@@ -72,7 +76,7 @@ function ProductItem({ item }) {
       </Link>
       <div>
         <div>
-          {quantity} {pluralize('item', quantity)} in stock
+          {quantity} {pluralize('creature', quantity)} {quantity === 1 ? 'is' : 'are'} available
         </div>
         {displayDiscount()}
         <span>${price}</span>
