@@ -2,8 +2,10 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../images/logo2.png";
+import Torch from "../../images/torch.png"
 import "../../App.css";
 import Button from "@mui/material/Button";
+
 
 function Nav() {
   // Function to determine the navigation based on user authentication status
@@ -11,7 +13,7 @@ function Nav() {
     if (Auth.loggedIn()) {
       // If user is logged in, navigation links for order history and logout are shown
       return (
-        <ul>
+        <ul className="nav-ul-bg">
           <Link to="/orderHistory">
             <Button variant="text" className="signed-in-button">
               <li>Order History</li>
@@ -29,7 +31,7 @@ function Nav() {
     } else {
       // If user is not logged in, navigation links for signup and login are shown
       return (
-        <ul className="nav-links">
+        <ul className="nav-links nav-ul-bg">
           <Link to="/signup">
             <Button variant="text">
               <li className="mx-1">Sign Up</li>
@@ -53,8 +55,13 @@ function Nav() {
   // Render the navigation component
   return (
     <header className="navigation">
-      <h1 className="nav-logo">
+      <img src={Torch} alt="torch" className="torch"/>
+      <img src={Torch} alt="torch" className="torch-2"/>
+      
+      <h1 className="">
+        
         <Link to="/">
+          
           <img src={Logo} alt="logo" />
           {/* <span role="img" aria-label="creatures">
           👹
