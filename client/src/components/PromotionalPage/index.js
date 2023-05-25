@@ -29,13 +29,11 @@ const PromotionalPage = () => {
 
       <div className="flaming-border">
         <h3 data-text="Buy One Zombie, Get Another One for Free">
-          🧟Limited Time Offer: Buy One, Get One Zombie for Free🧟
+          🧟Limited Time Offer: Get One Zombie for Free with Any Purchase🧟
         </h3>
         <p>
-          Looking for some "dead-ly" companions? Purchase any one of our high
-          quality and 80% intact undead from our collection, and we'll add
-          another zombie to your order absolutely free. Hurry before they wander
-          away!
+          Looking for a "dead-ly" companion? For a limited time, enter promo code "ZOMBIEPALOOZA" at checkout, and we'll add
+          a zombie to your order absolutely free. Hurry before they wander away!
         </p>
       </div>
 
@@ -45,19 +43,18 @@ const PromotionalPage = () => {
         </h3>
         <p>
           Take flight with a 20% discount on all dragon-related products and
-          make your dragon dreams come true. Seize the moment and let your
-          imagination soar!
+          make your dragon dreams come true. Please click this box and watch your savings soar!
         </p>
       </div>
 
       <div className="flaming-border">
-        <h3 data-text="Refer a Friend and Get $50 Credit">
-          💵Refer a Friend and Get $50 Credit💵
+        <h3 data-text="Refer a Friend and Get $300 Credit">
+          💵Refer a Friend and Get $300 Credit💵
         </h3>
         <p>
           Share the joy of owning a mythical creature with your friends! Refer a
           friend to our store, and when they make their first purchase, both you
-          and your friend will receive a $50 store credit.
+          and your friend will receive a $300 store credit.
         </p>
       </div>
 
@@ -73,8 +70,8 @@ const PromotionalPage = () => {
           Discover the enchanting world of mythical creatures and bring your
           dreams to life with this special discount. Because let's face it,
           coding can sometimes feel like wrangling dragons and taming unicorns.
-          Enjoy an exclusive limited-time offer and get 10% off all purchases
-          when you enter promo code CARLSON10 at checkout. Happy coding and may
+          Enjoy an exclusive limited-time offer and get 40% off all purchases
+          when you enter promo code "CARLSON40" at checkout. Happy coding and may
           your code be as legendary as a fire-breathing dragon!
         </p>
       </div>
