@@ -174,7 +174,7 @@ form input{
 .detail-img{
   width: 500px;
   height: 500px;
-  border: solid #333 8px;
+  border: solid black 5px;
 }
 
 .cat-button{
@@ -243,4 +243,39 @@ signed-in-button a:visited{
 
 .products-title-bg{
   background-color: gray;
+}
+
+.oh-bg{
+   background-color: darkgrey;
+   color: white;
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   border: solid black 5px;
+   padding-bottom: 10px;
+}
+
+.oh-bg-bl{
+  background-color: lightgrey;
+   /* color: white; */
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   
+   padding-bottom: 10px;
+}
+
+.cart{
+  background-color: gray;
+}
+
+.dp-bg{
+  background-color: darkgrey;
+   color: white;
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   border: solid black 5px;
+   padding-bottom: 10px;
+   background-image: linear-gradient(lightgray, gray);
 }
