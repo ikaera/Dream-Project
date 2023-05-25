@@ -31,7 +31,9 @@ function ProductItem({ item }) {
     if (itemInCart) {
 
       // If item is already in the cart, update quantity
-
+      if(itemInCart.quantity === itemInCart.purchaseQuantity){
+        return
+      }
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
