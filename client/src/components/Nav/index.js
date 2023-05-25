@@ -5,6 +5,8 @@ import Logo from "../../images/logo2.png";
 import Torch from "../../images/animatedtorch.gif";
 import "../../App.css";
 import Button from "@mui/material/Button";
+import MidiPlayer from 'react-midi-player';
+import data from '../../assets/amexks.mid'
 
 function Nav() {
   // Function to determine the navigation based on user authentication status
@@ -50,6 +52,7 @@ function Nav() {
   // Render the navigation component
   return (
     <header className="navigation">
+      <MidiPlayer src={data} autoplay="true"/>
       <img src={Torch} alt="torch" className="torch" />
       <img src={Torch} alt="torch" className="torch-2" />
 
