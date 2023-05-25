@@ -68,12 +68,14 @@ body {
   background-color: gray;
   color: white;
   font-weight: 700;
+  margin: 5px;
+  border: solid black 5px;
 }
 
 .product img{
-  width: 200px;
-  height: 200px;
-  border: solid #282c34 5px;
+  width: 250px;
+  height:250px;
+  border: solid black 5px;
 }
 
 /* .product p{
@@ -170,8 +172,8 @@ form input{
 }
 
 .detail-img{
-  width: 80%;
-  height: 80vh;
+  width: 500px;
+  height: 500px;
   border: solid #333 8px;
 }
 
