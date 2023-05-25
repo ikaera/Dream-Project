@@ -59,8 +59,8 @@ function ProductList({ searchField }) {
   };
 
   return (
-    <div className="my-2">
-      <h2>Our Products:</h2>
+    <div >
+      <h2 className="products-title-bg">Our Products:</h2>
       {state.products.length ? (
         <div className="products">
           {filterProducts()
