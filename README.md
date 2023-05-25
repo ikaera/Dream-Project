@@ -42,31 +42,7 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • To run the application on your local host, you can utilize the command "npm run develop."
 
-## Screenshots
-
-![JPG]()
-
-## Short Demo Animation
-
-[Fantastic Beasts and How to Buy Them]()
-
-## Links
-
-• Deployed Application URL: https://fantastic-beasts.herokuapp.com/
-
-• Repository URL: https://github.com/ikaera/Dream-Project
-
-## Credits
-
-• Irakli Eradze (https://github.com/ikaera)
-
-• Joseph Serrato (https://github.com/Jsrra)
-
-• Paige Girardi (https://github.com/pmgirardi)
-
-• Xavier Teo (https://github.com/XvrTeo)
-
-## Technology Used
+## Technologies Used
 
 • React.js
 
@@ -88,17 +64,45 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • JWT
 
+• Material UI
+
 • EmailJS
 
 • Stripe
 
 • Heroku
 
+## Screenshots
+
+![JPG]()
+
+## Short Demo Animation
+
+[Fantastic Beasts and How to Buy Them]()
+
+## Links
+
+• Deployed Application URL: https://fantastic-beasts.herokuapp.com/
+
+• Repository URL: https://github.com/ikaera/Dream-Project
+
+## Credits
+
+### Pixel Jinx
+
+• Irakli Eradze (https://github.com/ikaera)
+
+• Joseph Serrato (https://github.com/Jsrra)
+
+• Paige Girardi (https://github.com/pmgirardi)
+
+• Xavier Teo (https://github.com/XvrTeo)
+
 ## License
 
 MIT License
 
-Copyright (c) [2023] [Dream Team]
+Copyright (c) [2023] [Pixel Jinx]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
