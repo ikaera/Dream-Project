@@ -18,6 +18,7 @@ const Cart = () => {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   const [promoCode, setPromoCode] = useState('');
   const [discountApplied, setDiscountApplied] = useState(false);
+  const [zombieDiscountApplied, setZombieDiscountApplied] = useState(false);
 
   useEffect(() => {
     if (data) {
@@ -45,25 +46,28 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
+
     state.cart.forEach(item => {
       sum += item.price * item.purchaseQuantity;
     });
 
-    if (discountApplied) {
+    if (discountApplied && promoCode === 'CARLSON40') {
       sum *= 0.6;
+    }
+
+    if (zombieDiscountApplied) {
+      const zombieItem = state.cart.find(item => item.name === 'Zombie');
+      if (zombieItem && state.cart.length > 1) {
+        const zombieItemDiscount = zombieItem.price * zombieItem.purchaseQuantity;
+        sum -= zombieItemDiscount;
+      }
     }
 
     return sum.toFixed(2);
   }
 
   function submitCheckout() {
-    const productIds = [];
-
-    state.cart.forEach(item => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
-      }
-    });
+    const productIds = state.cart.map(item => item._id);
 
     getCheckout({
       variables: { products: productIds },
@@ -77,6 +81,13 @@ const Cart = () => {
   function applyPromoCode() {
     if (promoCode === 'CARLSON40') {
       setDiscountApplied(true);
+      setZombieDiscountApplied(false); // Reset zombie discount when another promo code is applied
+    } else if (promoCode === '1MOREDEADGUY') {
+      setZombieDiscountApplied(true);
+      setDiscountApplied(false); // Reset other discount when zombie discount is applied
+    } else {
+      setDiscountApplied(false);
+      setZombieDiscountApplied(false);
     }
   }
 
@@ -101,6 +112,10 @@ const Cart = () => {
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
+
+          {zombieDiscountApplied && state.cart.length > 1 && (
+            <p>Promotion applied: You get a FREE zombie!</p>
+          )}
 
           <div className="promo-code-container">
             <input

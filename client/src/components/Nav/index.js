@@ -2,10 +2,9 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../images/logo2.png";
-import Torch from "../../images/torch.png"
+import Torch from "../../images/animatedtorch.gif";
 import "../../App.css";
 import Button from "@mui/material/Button";
-
 
 function Nav() {
   // Function to determine the navigation based on user authentication status
@@ -43,10 +42,6 @@ function Nav() {
               <li className="mx-1">Log in</li>
             </Button>
           </Link>
-
-          {/* <li className="mx-1">
-            <Link to="/contact">CONTACT</Link>
-          </li> */}
         </ul>
       );
     }
@@ -55,21 +50,12 @@ function Nav() {
   // Render the navigation component
   return (
     <header className="navigation">
-      <img src={Torch} alt="torch" className="torch"/>
-      <img src={Torch} alt="torch" className="torch-2"/>
-      
+      <img src={Torch} alt="torch" className="torch" />
+      <img src={Torch} alt="torch" className="torch-2" />
+
       <h1 className="">
-        
         <Link to="/">
-          
           <img src={Logo} alt="logo" />
-          {/* <span role="img" aria-label="creatures">
-          👹
-          </span>
-          Fantastic Beasts and How to Buy Them
-          <span role="img" aria-label="creatures">
-          👹
-          </span> */}
         </Link>
       </h1>
 

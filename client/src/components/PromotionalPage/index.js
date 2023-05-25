@@ -29,13 +29,11 @@ const PromotionalPage = () => {
 
       <div className="flaming-border">
         <h3 data-text="Buy One Zombie, Get Another One for Free">
-          🧟Limited Time Offer: Buy One, Get One Zombie for Free🧟
+          🧟Limited Time Offer: Get One Zombie for Free with Any Purchase🧟
         </h3>
         <p>
-          Looking for some "dead-ly" companions? Purchase any one of our high
-          quality and 80% intact undead from our collection, and we'll add
-          another zombie to your order absolutely free. Enter promo code 1MOREDEADGUY at checkout. Hurry before they wander
-          away!
+          Looking for a "dead-ly" companion? For a limited time, enter promo code "1MOREDEADGUY" at checkout, and we'll add
+          a zombie to your order absolutely free. Hurry before they wander away!
         </p>
       </div>
 
@@ -73,7 +71,7 @@ const PromotionalPage = () => {
           dreams to life with this special discount. Because let's face it,
           coding can sometimes feel like wrangling dragons and taming unicorns.
           Enjoy an exclusive limited-time offer and get 40% off all purchases
-          when you enter promo code CARLSON40 at checkout. Happy coding and may
+          when you enter promo code "CARLSON40" at checkout. Happy coding and may
           your code be as legendary as a fire-breathing dragon!
         </p>
       </div>
