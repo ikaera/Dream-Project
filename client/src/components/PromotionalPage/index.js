@@ -32,7 +32,7 @@ const PromotionalPage = () => {
           🧟Limited Time Offer: Get One Zombie for Free with Any Purchase🧟
         </h3>
         <p>
-          Looking for a "dead-ly" companion? For a limited time, enter promo code "1MOREDEADGUY" at checkout, and we'll add
+          Looking for a "dead-ly" companion? For a limited time, enter promo code "ZOMBIEPALOOZA" at checkout, and we'll add
           a zombie to your order absolutely free. Hurry before they wander away!
         </p>
       </div>

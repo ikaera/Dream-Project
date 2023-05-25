@@ -82,7 +82,7 @@ const Cart = () => {
     if (promoCode === 'CARLSON40') {
       setDiscountApplied(true);
       setZombieDiscountApplied(false); // Reset zombie discount when another promo code is applied
-    } else if (promoCode === '1MOREDEADGUY') {
+    } else if (promoCode === 'ZOMBIEPALOOZA') {
       setZombieDiscountApplied(true);
       setDiscountApplied(false); // Reset other discount when zombie discount is applied
     } else {
