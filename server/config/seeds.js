@@ -27,6 +27,14 @@ db.once('open', async () => {
             quantity: 5,
         },
         {
+            name: 'Ice Dragon',
+            description: 'A dragon made of living ice with the ability to freeze its victim with its breath',
+            image: 'ice-dragon.jpg',
+            category: categories[0]._id,
+            price: 199.99,
+            quantity: 5,
+        },
+        {
             name: 'Phoenix',
             description: 'A radiant bird with shimmering plumage that represents rebirth and is said to be born from celestial flames.',
             image: 'celestial-phoenix.jpg',
@@ -65,6 +73,22 @@ db.once('open', async () => {
             category: categories[1]._id,
             price: 199.99,
             quantity: 4,
+        },
+        {
+            name: 'Uruk-hai',
+            description: 'Brutal warriors of Mordor, these crossbreeds of human and orc are equivalent to the corrupted version of half-elves.',
+            image: 'uruk-hai.jpeg',
+            category: categories[1]._id,
+            price: 250.99,
+            quantity: 5,
+        },
+        {
+            name: 'Faun',
+            description: 'A creature of Roman origin, part human and part goat.',
+            image: 'faun.jpg',
+            category: categories[1]._id,
+            price: 300.99,
+            quantity: 2,
         },
         {
             name: 'Leviathan',
