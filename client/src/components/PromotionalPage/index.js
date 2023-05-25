@@ -28,12 +28,11 @@ const PromotionalPage = () => {
       </div>
 
       <div className="flaming-border">
-        <h3 data-text="Buy One Zombie, Get Another One for Free">
-          🧟Limited Time Offer: Get One Zombie for Free with Any Purchase🧟
+        <h3 data-text="Limited Time Offer: Get a FREE Zombie with Any Purchase">
+          🧟Limited Time Offer: Get a FREE Zombie with Any Purchase🧟
         </h3>
         <p>
-          Looking for a "dead-ly" companion? For a limited time, enter promo code "ZOMBIEPALOOZA" at checkout, and we'll add
-          a zombie to your order absolutely free. Hurry before they wander away!
+          Looking for a "dead-ly" companion? When you enter the promo code "ZOMBIEPALOOZA" during checkout and have any other mythical creature in your cart, your zombie will be absolutely free. Hurry before they wander away!
         </p>
       </div>
 
