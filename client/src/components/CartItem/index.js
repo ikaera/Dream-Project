@@ -4,7 +4,7 @@ import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
-
+    console.log("item", item)
   const [, dispatch] = useStoreContext();
 
   // Function to remove an item from the cart
@@ -58,6 +58,8 @@ const CartItem = ({ item }) => {
             placeholder="1"
             value={item.purchaseQuantity}
             onChange={onChange}
+            max={item.quantity}
+            readonly="readonly"
           />
           <span
             role="img"

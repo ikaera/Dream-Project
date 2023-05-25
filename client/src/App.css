@@ -1,6 +1,8 @@
 /* .App  */
 :root{
   background-color: #F8F8FF;
+  /* background-image: url(https://t3.ftcdn.net/jpg/00/92/50/54/240_F_92505416_TdZkOAwOtCkTP99FHbvdpG86XLD1zyvJ.jpg); */
+  
 }
 
 body {
@@ -194,4 +196,8 @@ signed-in-button a{
 signed-in-button a:visited{
   color: #0275d8;
   text-decoration: none;
+}
+
+.category-bg{
+  background-color: #282c34;
 }
