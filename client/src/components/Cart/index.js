@@ -22,63 +22,59 @@ const Cart = () => {
 
   useEffect(() => {
     if (data) {
-      stripePromise.then(res => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
+      stripePromise.then(stripe => {
+        stripe.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
   }, [data]);
 
   useEffect(() => {
-    async function getCart() {
+    const getCart = async () => {
       const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    }
+    };
 
-    if (!state.cart.length) {
-      console.log('Hello');
+    if (state.cart.length === 0) {
       getCart();
     }
   }, [state.cart.length, dispatch]);
 
-  function toggleCart() {
+  const toggleCart = () => {
     dispatch({ type: TOGGLE_CART });
-  }
+  };
 
-  function calculateTotal() {
+  const calculateTotal = () => {
     let sum = 0;
 
     state.cart.forEach(item => {
-      sum += item.price * item.purchaseQuantity;
+      if (!zombieDiscountApplied || (zombieDiscountApplied && item.name !== 'Zombie')) {
+        sum += item.price * item.purchaseQuantity;
+      }
     });
 
     if (discountApplied && promoCode === 'CARLSON40') {
       sum *= 0.6;
     }
 
-    if (zombieDiscountApplied) {
-      const zombieItem = state.cart.find(item => item.name === 'Zombie');
-      if (zombieItem && state.cart.length > 1) {
-        const zombieItemDiscount = zombieItem.price * zombieItem.purchaseQuantity;
-        sum -= zombieItemDiscount;
-      }
-    }
-
     return sum.toFixed(2);
-  }
+  };
 
-  function submitCheckout() {
-    const productIds = state.cart.map(item => item._id);
+  const submitCheckout = () => {
+    let productIds = state.cart.map(item => item._id);
+
+    if (zombieDiscountApplied) {
+      productIds = productIds.filter(id => {
+        const item = state.cart.find(item => item._id === id);
+        return item.name !== 'Zombie';
+      });
+    }
 
     getCheckout({
       variables: { products: productIds },
     });
-  }
+  };
 
-  function handlePromoCodeChange(event) {
-    setPromoCode(event.target.value);
-  }
-
-  function applyPromoCode() {
+  const applyPromoCode = () => {
     if (promoCode === 'CARLSON40') {
       setDiscountApplied(true);
       setZombieDiscountApplied(false); // Reset zombie discount when another promo code is applied
@@ -89,7 +85,7 @@ const Cart = () => {
       setDiscountApplied(false);
       setZombieDiscountApplied(false);
     }
-  }
+  };
 
   if (!state.cartOpen) {
     return (
@@ -103,7 +99,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <div className="close " onClick={toggleCart}>
+      <div className="close" onClick={toggleCart}>
         [close]
       </div>
       <h2>Shopping Cart</h2>
@@ -122,7 +118,7 @@ const Cart = () => {
               type="text"
               placeholder="Enter promo code"
               value={promoCode}
-              onChange={handlePromoCodeChange}
+              onChange={event => setPromoCode(event.target.value)}
             />
             <button onClick={applyPromoCode}>Apply</button>
           </div>
