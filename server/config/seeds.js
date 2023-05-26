@@ -107,6 +107,14 @@ db.once('open', async () => {
             quantity: 20,
         },
         {
+            name: 'Whoo-ee',
+            description: 'Wild orange striped beast that delights in eating squirrels and fighting foxes',
+            image: 'whoo-ee.jpg',
+            category: categories[3]._id,
+            price: 666.99,
+            quantity: 1,
+        },
+        {
             name: 'Leviathan',
             description: 'A massive sea serpent that rules the depths of the ocean, feared by sailors and revered as an aquatic guardian.',
             image: 'leviathan.jpg',
