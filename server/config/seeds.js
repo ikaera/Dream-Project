@@ -109,7 +109,7 @@ db.once('open', async () => {
         {
             name: 'Whoo-ee',
             description: 'Wild orange striped beast that delights in eating squirrels and fighting foxes',
-            image: 'whoo-ee.jpg',
+            image: 'whooee.jpg',
             category: categories[3]._id,
             price: 666.99,
             quantity: 1,
