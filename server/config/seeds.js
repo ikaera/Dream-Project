@@ -123,7 +123,7 @@ db.once('open', async () => {
             quantity: 5,
         },
         {
-            name: 'Centaurs',
+            name: 'Centaur',
             description: 'These mythical beings have the body of a horse and the upper torso of a human.',
             image: 'centaur.jpg',
             category: categories[3]._id,
