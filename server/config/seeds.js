@@ -106,7 +106,7 @@ db.once('open', async () => {
             price: 99.99,
             quantity: 20,
         },
- 
+    
         {
             name: 'Leviathan',
             description: 'A massive sea serpent that rules the depths of the ocean, feared by sailors and revered as an aquatic guardian.',
