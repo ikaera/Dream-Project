@@ -7,7 +7,7 @@
 
 body {
   text-align: center;
-  
+
 }
 
 /* .App-logo {
@@ -68,16 +68,18 @@ body {
   background-color: gray;
   color: white;
   font-weight: 700;
+  margin: 5px;
+  border: solid black 5px;
 }
 
 .product img{
-  width: 200px;
-  height: 200px;
-  border: solid #282c34 5px;
+  width: 250px;
+  height:250px;
+  border: solid black 5px;
 }
 
 /* .product p{
-  
+
   text-decoration: none;
 } */
 
@@ -166,13 +168,13 @@ form input{
   padding-top: 10px;
   background-color: gray;
   padding-bottom: 10px;
-  
+
 }
 
 .detail-img{
-  width: 80%;
-  height: 80vh;
-  border: solid #333 8px;
+  width: 500px;
+  height: 500px;
+  border: solid black 5px;
 }
 
 .cat-button{
@@ -214,16 +216,16 @@ signed-in-button a:visited{
 } */
 
 .torch{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   position: absolute;
   right: 12%;
   top: 20%;
 }
 
 .torch-2{
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   position: absolute;
   left: 12%;
   top: 20%;
@@ -239,6 +241,46 @@ signed-in-button a:visited{
   }
 }
 
+
 .products-title-bg{
+  background-color: gray;
+}
+
+.oh-bg{
+   background-color: darkgrey;
+   color: white;
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   border: solid black 5px;
+   padding-bottom: 10px;
+}
+
+.oh-bg-bl{
+  background-color: lightgrey;
+   /* color: white; */
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   
+   padding-bottom: 10px;
+}
+
+.cart{
+  background-color: gray;
+}
+
+.dp-bg{
+  background-color: darkgrey;
+   color: white;
+   font-weight: 700;
+   width:fit-content ;
+   margin: auto;
+   border: solid black 5px;
+   padding-bottom: 10px;
+   background-image: linear-gradient(lightgray, gray);
+}
+
+.login-bg{
   background-color: gray;
 }

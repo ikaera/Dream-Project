@@ -85,7 +85,7 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
+        <div className="container my-1 dp-bg">
           <Link to="/">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
