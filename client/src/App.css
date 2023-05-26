@@ -280,3 +280,7 @@ signed-in-button a:visited{
    padding-bottom: 10px;
    background-image: linear-gradient(lightgray, gray);
 }
+
+.login-bg{
+  background-color: gray;
+}
