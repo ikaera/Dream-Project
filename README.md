@@ -78,13 +78,9 @@ OR
 
 • Heroku
 
-## Screenshots
+## Screenshot
 
-![JPG]()
-
-## Short Demo Animation
-
-[Fantastic Beasts and How to Buy Them]()
+![JPG](./fantastic.jpg)
 
 ## Links
 
