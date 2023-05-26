@@ -26,11 +26,17 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • As a customer, I should proceed to the Stripe payment platform for a secure and convenient transaction.
 
+• As a customer, I should be able to enter discount codes into the promo code box.
+
 • As a customer, once I have successfully completed the payment process, I should be redirected back to the homepage.
 
 • As a customer, I want to have access to my purchase history, enabling me to view past orders and track my mythical animal acquisitions.
 
 ## Usage
+
+• Visit the deployed website at https://fantastic-beasts.herokuapp.com/
+
+OR
 
 • To obtain the repository, you can either download it or clone it.
 
@@ -63,6 +69,8 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 • JWT
 
 • Material UI
+
+• MIDI Player
 
 • EmailJS
 
