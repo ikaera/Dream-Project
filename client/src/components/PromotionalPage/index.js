@@ -27,7 +27,7 @@ const PromotionalPage = () => {
         <p>Explore our exclusive deals and offers!</p>
       </div>
 
-      <div className="flaming-border">
+      <div className="flaming-border" style={{ cursor: 'pointer' }}>
         <h3 data-text="Limited Time Offer: Get a FREE Zombie with Any Purchase">
           🧟Limited Time Offer: Get a FREE Zombie with Any Purchase🧟
         </h3>
