@@ -42,7 +42,7 @@ const PromotionalPage = () => {
       <div
         className="flaming-border"
         onClick={dragonDeal}
-        style={{ cursor: pointer }}
+        style={{ cursor: 'pointer' }}
       >
         <h3 data-text="Dragons are 20% off this month">
           🐲Dragons are 20% off this month🐲
