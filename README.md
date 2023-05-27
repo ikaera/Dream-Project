@@ -2,7 +2,7 @@
 
 ## Description
 
-Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of owning mythical creatures a reality. Our platform offers a seamless shopping experience, allowing customers to explore and purchase a wide range of mythical creatures. With a user-friendly interface, intuitive search functionality, and real-time product availability updates, finding and acquiring your favorite mythical animals has never been easier. Add items to your cart, effortlessly checkout with our secure Stripe payment integration, and keep track of your purchase history. Join us on this magical journey and bring the enchantment of mythical creatures into your life!"
+Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of owning mythical creatures a reality. Our platform offers a seamless shopping experience, allowing customers to explore and purchase a wide range of mythical creatures. With a user-friendly interface with an intuitive search functionality, finding and acquiring your favorite mythical animals has never been easier. Add items to your cart, effortlessly checkout with our secure Stripe payment integration, and keep track of your purchase history. Join us on this magical journey and bring the enchantment of mythical creatures into your life!
 
 ## User Story
 
@@ -20,19 +20,23 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • As a customer, when viewing a product, I should see an image, type, price, availability, quantity, and a description of the mythical animal.
 
-• As a customer, I want to be able to add products to my cart and remove them as needed, ensuring a flexible shopping experience.
+• As a customer, I want to be able to add products to my cart by clicking on the respective "ADD TO CART" buttons but not be able to exceed the inventory amount.
 
-• As a customer, when hovering over the cart icon, I expect to see the contents of the cart displayed, allowing me to review the items I have selected.
+• As a customer, when I am ready to checkout, I should click on the shopping cart icon at the top right.
 
-• As a customer, when I am ready to checkout, I should have the option to proceed to the Stripe payment platform for a secure and convenient transaction.
+• As a customer, I should proceed to the Stripe payment platform for a secure and convenient transaction.
+
+• As a customer, I should be able to enter discount codes into the promo code box.
 
 • As a customer, once I have successfully completed the payment process, I should be redirected back to the homepage.
-
-• As a customer, I expect the availability of products to be updated in real-time, reflecting any changes due to purchases or restocking.
 
 • As a customer, I want to have access to my purchase history, enabling me to view past orders and track my mythical animal acquisitions.
 
 ## Usage
+
+• Visit the deployed website at https://fantastic-beasts.herokuapp.com/
+
+OR
 
 • To obtain the repository, you can either download it or clone it.
 
@@ -66,19 +70,17 @@ Introducing "Fantastic Beasts and How to Buy Them", where we make your dreams of
 
 • Material UI
 
+• MIDI Player
+
 • EmailJS
 
 • Stripe
 
 • Heroku
 
-## Screenshots
+## Screenshot
 
-![JPG]()
-
-## Short Demo Animation
-
-[Fantastic Beasts and How to Buy Them]()
+![JPG](./fantastic.jpg)
 
 ## Links
 

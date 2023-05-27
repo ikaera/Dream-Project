@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
@@ -16,52 +16,76 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [promoCode, setPromoCode] = useState('');
+  const [discountApplied, setDiscountApplied] = useState(false);
+  const [zombieDiscountApplied, setZombieDiscountApplied] = useState(false);
 
   useEffect(() => {
     if (data) {
-      stripePromise.then(res => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
+      stripePromise.then(stripe => {
+        stripe.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
   }, [data]);
 
   useEffect(() => {
-    async function getCart() {
+    const getCart = async () => {
       const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    }
+    };
 
-    if (!state.cart.length) {
-      console.log('Hello');
+    if (state.cart.length === 0) {
       getCart();
     }
   }, [state.cart.length, dispatch]);
 
-  function toggleCart() {
+  const toggleCart = () => {
     dispatch({ type: TOGGLE_CART });
-  }
+  };
 
-  function calculateTotal() {
+  const calculateTotal = () => {
     let sum = 0;
-    state.cart.forEach(item => {
-      sum += item.price * item.purchaseQuantity;
-    });
-    return sum.toFixed(2);
-  }
-
-  function submitCheckout() {
-    const productIds = [];
 
     state.cart.forEach(item => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
+      if (!zombieDiscountApplied || (zombieDiscountApplied && item.name !== 'Zombie')) {
+        sum += item.price * item.purchaseQuantity;
       }
     });
+
+    if (discountApplied && promoCode === 'CARLSON40') {
+      sum *= 0.6;
+    }
+
+    return sum.toFixed(2);
+  };
+
+  const submitCheckout = () => {
+    let productIds = state.cart.map(item => item._id);
+
+    if (zombieDiscountApplied) {
+      productIds = productIds.filter(id => {
+        const item = state.cart.find(item => item._id === id);
+        return item.name !== 'Zombie';
+      });
+    }
 
     getCheckout({
       variables: { products: productIds },
     });
-  }
+  };
+
+  const applyPromoCode = () => {
+    if (promoCode === 'CARLSON40') {
+      setDiscountApplied(true);
+      setZombieDiscountApplied(false); // Reset zombie discount when another promo code is applied
+    } else if (promoCode === 'ZOMBIEPALOOZA') {
+      setZombieDiscountApplied(true);
+      setDiscountApplied(false); // Reset other discount when zombie discount is applied
+    } else {
+      setDiscountApplied(false);
+      setZombieDiscountApplied(false);
+    }
+  };
 
   if (!state.cartOpen) {
     return (
@@ -84,6 +108,20 @@ const Cart = () => {
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
+
+          {zombieDiscountApplied && state.cart.length > 1 && (
+            <p>Promotion applied: You get a FREE zombie!</p>
+          )}
+
+          <div className="promo-code-container">
+            <input
+              type="text"
+              placeholder="Enter promo code"
+              value={promoCode}
+              onChange={event => setPromoCode(event.target.value)}
+            />
+            <button onClick={applyPromoCode}>Apply</button>
+          </div>
 
           <div className="flex-row space-between">
             <strong>Total: ${calculateTotal()}</strong>

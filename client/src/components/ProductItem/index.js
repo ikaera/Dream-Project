@@ -57,11 +57,15 @@ function ProductItem({ item }) {
         <>
           {' '}
           <span className="original-price">${originalPrice} </span>
-          <span className="discount">({percentage.toFixed()}%OFF) </span>
+          <span className="discount">({percentage.toFixed()}% OFF) </span>
         </>
       );
     }
     return '';
+  }
+
+  function pluralize(word, quantity) {
+    return quantity === 1 ? word : word + 's';
   }
 
   return (
@@ -72,7 +76,7 @@ function ProductItem({ item }) {
       </Link>
       <div>
         <div>
-          {quantity} {pluralize('item', quantity)} in stock
+          {quantity} {pluralize('creature', quantity)} {quantity === 1 ? 'is' : 'are'} available
         </div>
         {displayDiscount()}
         <span>${price}</span>

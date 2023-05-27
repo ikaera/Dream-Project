@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import Logo from "../../images/logo2.png";
-import Torch from "../../images/torch.png"
+import Torch from "../../images/animatedtorch.gif";
 import "../../App.css";
 import Button from "@mui/material/Button";
-
+import MidiPlayer from 'react-midi-player';
+import data from '../../assets/amexks.mid';
 
 function Nav() {
+  // Create a reference to the MidiPlayer component
+  const midiPlayerRef = useRef(null);
+
+  // When the component mounts, play the MIDI track
+  useEffect(() => {
+    if (midiPlayerRef.current) {
+      midiPlayerRef.current.play();
+    }
+  }, []);
+
+  // Function to handle the end of the MIDI track
+  function handleMidiEnd() {
+    // Replay the MIDI track once it ends
+    if (midiPlayerRef.current) {
+      midiPlayerRef.current.play();
+    }
+  }
+
   // Function to determine the navigation based on user authentication status
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -19,8 +38,6 @@ function Nav() {
               <li>Order History</li>
             </Button>
           </Link>
-
-          {/* Use an anchor tag to logout the user and refresh the application */}
           <Button variant="text" className="signed-in-button">
             <a href="/" onClick={() => Auth.logout()}>
               <li>Log Out</li>
@@ -37,16 +54,11 @@ function Nav() {
               <li className="mx-1">Sign Up</li>
             </Button>
           </Link>
-
           <Link to="/login">
             <Button variant="text">
               <li className="mx-1">Log in</li>
             </Button>
           </Link>
-
-          {/* <li className="mx-1">
-            <Link to="/contact">CONTACT</Link>
-          </li> */}
         </ul>
       );
     }
@@ -55,24 +67,25 @@ function Nav() {
   // Render the navigation component
   return (
     <header className="navigation">
-      <img src={Torch} alt="torch" className="torch"/>
-      <img src={Torch} alt="torch" className="torch-2"/>
-      
+      {/* MidiPlayer component to play MIDI track */}
+      <MidiPlayer
+        ref={midiPlayerRef} // Set the reference to the MidiPlayer component
+        src={data} // Specify the source of the MIDI track
+        autoplay // Autoplay the MIDI track when the component mounts
+        onEnd={handleMidiEnd} // Event handler for when the MIDI track ends
+      />
+
+      {/* Animated torch images */}
+      <img src={Torch} alt="torch" className="torch" />
+      <img src={Torch} alt="torch" className="torch-2" />
+
       <h1 className="">
-        
         <Link to="/">
-          
           <img src={Logo} alt="logo" />
-          {/* <span role="img" aria-label="creatures">
-          👹
-          </span>
-          Fantastic Beasts and How to Buy Them
-          <span role="img" aria-label="creatures">
-          👹
-          </span> */}
         </Link>
       </h1>
 
+      {/* Render the navigation links based on user authentication */}
       <nav>{showNavigation()}</nav>
     </header>
   );
