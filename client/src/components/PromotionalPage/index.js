@@ -32,17 +32,25 @@ const PromotionalPage = () => {
           🧟Limited Time Offer: Get a FREE Zombie with Any Purchase🧟
         </h3>
         <p>
-          Looking for a "dead-ly" companion? When you enter the promo code "ZOMBIEPALOOZA" during checkout and have any other mythical creature in your cart, your zombie will be absolutely free. Hurry before they wander away!
+          Looking for a "dead-ly" companion? When you enter the promo code
+          "ZOMBIEPALOOZA" during checkout and have any other mythical creature
+          in your cart, your zombie will be absolutely free. Hurry before they
+          wander away!
         </p>
       </div>
 
-      <div className="flaming-border" onClick={dragonDeal}>
+      <div
+        className="flaming-border"
+        onClick={dragonDeal}
+        style={{ cursor: pointer }}
+      >
         <h3 data-text="Dragons are 20% off this month">
           🐲Dragons are 20% off this month🐲
         </h3>
         <p>
           Take flight with a 20% discount on all dragon-related products and
-          make your dragon dreams come true. Please click this box and watch your savings soar!
+          make your dragon dreams come true. Please click this box and watch
+          your savings soar!
         </p>
       </div>
 
@@ -70,8 +78,8 @@ const PromotionalPage = () => {
           dreams to life with this special discount. Because let's face it,
           coding can sometimes feel like wrangling dragons and taming unicorns.
           Enjoy an exclusive limited-time offer and get 40% off all purchases
-          when you enter promo code "CARLSON40" at checkout. Happy coding and may
-          your code be as legendary as a fire-breathing dragon!
+          when you enter promo code "CARLSON40" at checkout. Happy coding and
+          may your code be as legendary as a fire-breathing dragon!
         </p>
       </div>
     </div>
